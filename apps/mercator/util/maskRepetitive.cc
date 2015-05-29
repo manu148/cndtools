@@ -20,6 +20,7 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
+#include <stdint.h>
 
 #include "bio/formats/fasta.hh"
 #include "util/string.hh"

@@ -58,8 +58,8 @@ namespace bio { namespace alignment {
 					}
 				}
 				
-				setCharScore(ambiguousChar1, ambiguousChar2,
-							 total / static_cast<int>(chars1.size() * chars2.size()));
+				this->setCharScore(ambiguousChar1, ambiguousChar2,
+						   total / static_cast<int>(chars1.size() * chars2.size()));
 			}
 		}
 	}

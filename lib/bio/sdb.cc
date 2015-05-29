@@ -20,7 +20,7 @@
 #include "bio/sdb.hh"
 #include "util/io.hh"
 #include "util/string.hh"
-
+   
 namespace bio { namespace SDB {
 
 	const unsigned int DB::MAGIC_NUMBER = 0x571CD854;
@@ -368,6 +368,14 @@ namespace bio { namespace SDB {
 			
 			while (true) {
 				lastRecord.read();
+				std::string geneName;
+				int firstSpacePos = lastRecord.title.find(' ');
+				if (firstSpacePos == -1) {
+					geneName = lastRecord.title;
+				} else {
+					geneName = lastRecord.title.substr(0, firstSpacePos);
+				}
+				lastRecord.title = geneName;
 				int cmp = title.compare(lastRecord.title);
 				if (cmp == 0) {
 					return true;

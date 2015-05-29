@@ -381,7 +381,7 @@ namespace bio { namespace formats { namespace agp {
 	
 	inline void Record::setGapBridged(bool bridged) {
 		assert(isGap());
-		fields[7] == (bridged ? "yes" : "no");
+		fields[7] = (bridged ? "yes" : "no");
 	}
 
 } } }

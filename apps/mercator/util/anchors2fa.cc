@@ -81,7 +81,14 @@ public:
 		bio::formats::fasta::InputStream fastaStream(fastaFile);
 		bio::formats::fasta::Record rec;
 		while (fastaStream >> rec) {
-			seqMap[rec.title] = rec.sequence;
+			std::string geneName;
+			int firstSpacePos = rec.title.find(' ');
+			if (firstSpacePos == -1) {
+				geneName = rec.title;
+			} else {
+				geneName = rec.title.substr(0, firstSpacePos);
+			}
+			seqMap[geneName] = rec.sequence;
 		}
 	}
 	

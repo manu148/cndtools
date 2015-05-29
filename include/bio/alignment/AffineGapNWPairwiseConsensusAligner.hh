@@ -155,7 +155,7 @@ namespace bio { namespace alignment {
 	align(const std::string& seq1,
 		  const std::string& seq2) const {
 		ScoreMatrix matchState, gap1State, gap2State;
-		scoreMatrix(seq1, seq2, matchState, gap1State, gap2State);
+		this->scoreMatrix(seq1, seq2, matchState, gap1State, gap2State);
 		
 		std::vector<bool> isAligned1, isAligned2;
 		std::vector<size_t> alignment1, alignment2;
