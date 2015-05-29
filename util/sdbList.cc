@@ -53,7 +53,8 @@ int main(int argc, const char* argv[]) {
 	}
 
 	for (bio::SDB::DB::Iterator it = db.begin(); it != db.end(); ++it) {
-		std::cout << it->getTitle();
+		int first_space_pos = it->getTitle().find(' ');
+		std::cout << (first_space_pos == -1 ? it->getTitle() : it->getTitle().substr(0, first_space_pos));
 		if (number_title) {
 			std::cout << '\t' << it->getRecNum();
 		}
